@@ -1,9 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Square from './Square';
 
 function Board({ isSinglePlayer, difficulty, onBackToHome }) {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
+
+  const handleClick = useCallback((i) => {
+    const newSquares = squares.slice();
+    if (calculateWinner(newSquares) || newSquares[i]) {
+      return;
+    }
+    newSquares[i] = xIsNext ? 'X' : 'O';
+    setSquares(newSquares);
+    setXIsNext(!xIsNext);
+  }, [squares, xIsNext]);
+
+  const findBestMove = useCallback((squares) => {
+    let bestVal = -Infinity;
+    let bestMove = -1;
+
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i] === null) {
+        squares[i] = 'O';
+        let moveVal = minimax(squares, 0, false);
+        squares[i] = null;
+
+        if (moveVal > bestVal) {
+          bestMove = i;
+          bestVal = moveVal;
+        }
+      }
+    }
+    return bestMove;
+  }, []);
 
   useEffect(() => {
     if (isSinglePlayer && !xIsNext) {
@@ -17,16 +46,6 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
       setTimeout(resetBoard, 2000); // Reinicia el tablero después de 2 segundos
     }
   }, [squares]);
-
-  const handleClick = (i) => {
-    const newSquares = squares.slice();
-    if (calculateWinner(newSquares) || newSquares[i]) {
-      return;
-    }
-    newSquares[i] = xIsNext ? 'X' : 'O';
-    setSquares(newSquares);
-    setXIsNext(!xIsNext);
-  };
 
   const resetBoard = () => {
     setSquares(Array(9).fill(null));
@@ -87,25 +106,6 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
       }
     }
     return null;
-  }
-
-  function findBestMove(squares) {
-    let bestVal = -Infinity;
-    let bestMove = -1;
-
-    for (let i = 0; i < squares.length; i++) {
-      if (squares[i] === null) {
-        squares[i] = 'O';
-        let moveVal = minimax(squares, 0, false);
-        squares[i] = null;
-
-        if (moveVal > bestVal) {
-          bestMove = i;
-          bestVal = moveVal;
-        }
-      }
-    }
-    return bestMove;
   }
 
   function minimax(squares, depth, isMax) {

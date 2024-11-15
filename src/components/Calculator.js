@@ -16,7 +16,11 @@ function Calculator({ onBackToHome }) {
   const handleCalculate = () => {
     try {
       // Evalúa la expresión de manera segura
-      const safeEval = (fn) => Function(`'use strict'; return (${fn})`)();
+      const safeEval = (fn) => {
+        // Aquí puedes implementar una lógica de evaluación segura
+        // Por ejemplo, usando una biblioteca de evaluación matemática segura
+        return Function(`'use strict'; return (${fn})`)();
+      };
       setResult(safeEval(input));
     } catch (error) {
       setResult('Error');
