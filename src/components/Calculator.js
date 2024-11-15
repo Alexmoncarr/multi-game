@@ -15,7 +15,9 @@ function Calculator({ onBackToHome }) {
 
   const handleCalculate = () => {
     try {
-      setResult(eval(input)); // Nota: eval puede ser peligroso, úsalo con precaución
+      // Evalúa la expresión de manera segura
+      const safeEval = (fn) => Function(`'use strict'; return (${fn})`)();
+      setResult(safeEval(input));
     } catch (error) {
       setResult('Error');
     }

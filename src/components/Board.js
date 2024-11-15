@@ -10,7 +10,7 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
       const bestMove = difficulty === 'hard' ? findBestMove(squares) : findRandomMove(squares);
       handleClick(bestMove);
     }
-  }, [xIsNext, isSinglePlayer, difficulty, squares]);
+  }, [xIsNext, isSinglePlayer, difficulty, squares, findBestMove, handleClick]);
 
   useEffect(() => {
     if (!calculateWinner(squares) && !isMovesLeft(squares)) {
