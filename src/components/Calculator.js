@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { evaluate } from 'mathjs';
 
 function Calculator({ onBackToHome }) {
   const [input, setInput] = useState('');
@@ -15,13 +16,7 @@ function Calculator({ onBackToHome }) {
 
   const handleCalculate = () => {
     try {
-      // Evalúa la expresión de manera segura
-      const safeEval = (fn) => {
-        // Aquí puedes implementar una lógica de evaluación segura
-        // Por ejemplo, usando una biblioteca de evaluación matemática segura
-        return Function(`'use strict'; return (${fn})`)();
-      };
-      setResult(safeEval(input));
+      setResult(evaluate(input));
     } catch (error) {
       setResult('Error');
     }
