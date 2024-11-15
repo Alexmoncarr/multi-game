@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Home from './components/Home';
+import HomeRock from './components/HomeRock';
+import GuessNumber from './components/GuessNumber';
+import MemoryGame from './components/MemoryGame';
+import TicTacToe from './components/TicTacToe';
+import Calculator from './components/Calculator';
 import './App.css';
 
 function App() {
+  const [game, setGame] = useState(null);
+
+  const handleBackToHome = () => {
+    setGame(null);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!game && <Home setGame={setGame} />}
+      {game === 'calculator' && <Calculator onBackToHome={handleBackToHome} />}
+      {game === 'tic-tac-toe' && <TicTacToe onBackToHome={handleBackToHome} />}
+      {game === 'rock-paper-scissors' && <HomeRock onBackToHome={handleBackToHome} />}
+      {game === 'guess-number' && <GuessNumber onBackToHome={handleBackToHome} />}
+      {game === 'memory-game' && <MemoryGame onBackToHome={handleBackToHome} />}
     </div>
   );
 }
