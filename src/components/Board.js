@@ -15,6 +15,36 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
     setXIsNext(!xIsNext);
   }, [squares, xIsNext]);
 
+  const minimax = useCallback((squares, depth, isMax) => {
+    let score = evaluate(squares);
+
+    if (score === 10) return score - depth;
+    if (score === -10) return score + depth;
+    if (isMovesLeft(squares) === false) return 0;
+
+    if (isMax) {
+      let best = -Infinity;
+      for (let i = 0; i < squares.length; i++) {
+        if (squares[i] === null) {
+          squares[i] = 'O';
+          best = Math.max(best, minimax(squares, depth + 1, !isMax));
+          squares[i] = null;
+        }
+      }
+      return best;
+    } else {
+      let best = Infinity;
+      for (let i = 0; i < squares.length; i++) {
+        if (squares[i] === null) {
+          squares[i] = 'X';
+          best = Math.min(best, minimax(squares, depth + 1, !isMax));
+          squares[i] = null;
+        }
+      }
+      return best;
+    }
+  }, []);
+
   const findBestMove = useCallback((squares) => {
     let bestVal = -Infinity;
     let bestMove = -1;
@@ -32,7 +62,7 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
       }
     }
     return bestMove;
-  }, []);
+  }, [minimax]);
 
   useEffect(() => {
     if (isSinglePlayer && !xIsNext) {
@@ -106,36 +136,6 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
       }
     }
     return null;
-  }
-
-  function minimax(squares, depth, isMax) {
-    let score = evaluate(squares);
-
-    if (score === 10) return score - depth;
-    if (score === -10) return score + depth;
-    if (isMovesLeft(squares) === false) return 0;
-
-    if (isMax) {
-      let best = -Infinity;
-      for (let i = 0; i < squares.length; i++) {
-        if (squares[i] === null) {
-          squares[i] = 'O';
-          best = Math.max(best, minimax(squares, depth + 1, !isMax));
-          squares[i] = null;
-        }
-      }
-      return best;
-    } else {
-      let best = Infinity;
-      for (let i = 0; i < squares.length; i++) {
-        if (squares[i] === null) {
-          squares[i] = 'X';
-          best = Math.min(best, minimax(squares, depth + 1, !isMax));
-          squares[i] = null;
-        }
-      }
-      return best;
-    }
   }
 
   function evaluate(squares) {
