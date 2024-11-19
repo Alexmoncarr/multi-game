@@ -33,9 +33,11 @@ jobs:
       with:
         args: >
           -Dsonar.projectKey=multi-game-app
-          -Dsonar.organization=multi-game-app
+          -Dsonar.organization=multi-game-app 
+          -X
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
 
   deploy:
     needs: [build, sonarcloud]
