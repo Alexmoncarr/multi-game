@@ -31,8 +31,8 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@v1.4
       with:
         args: >
-          -Dsonar.projectKey=your_project_key
-          -Dsonar.organization=your_organization
+          -Dsonar.projectKey=multi-game-app
+          -Dsonar.organization=multi-game-app
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
