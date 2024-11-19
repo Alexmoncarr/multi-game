@@ -29,7 +29,7 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@v1.4
+      uses: sonarsource/sonarcloud-github-action@master
       with:
         args: >
           -Dsonar.projectKey=multi-game-app
