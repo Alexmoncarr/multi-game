@@ -12,4 +12,12 @@ test('handles button click correctly', () => {
   const { getByText } = render(<Home setGame={setGame} />);
   fireEvent.click(getByText('Calculadora'));
   expect(setGame).toHaveBeenCalledWith('calculator');
+  fireEvent.click(getByText('Tic-Tac-Toe'));
+  expect(setGame).toHaveBeenCalledWith('tic-tac-toe');
+  fireEvent.click(getByText('Piedra, Papel, Tijera'));
+  expect(setGame).toHaveBeenCalledWith('rock-paper-scissors');
+  fireEvent.click(getByText('Adivina el Número'));
+  expect(setGame).toHaveBeenCalledWith('guess-number');
+  fireEvent.click(getByText('Memoria'));
+  expect(setGame).toHaveBeenCalledWith('memory-game');
 });
