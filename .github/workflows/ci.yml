@@ -27,6 +27,8 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+    - name: Set Java Home
+      run: echo "JAVA_HOME_17_X64=/usr/lib/jvm/adoptopenjdk-17-hotspot-amd64" >> $GITHUB_ENV
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v1.4
       with:
