@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { evaluate } from 'mathjs';
+import "../App.css";
 
 function Calculator({ onBackToHome }) {
   const [input, setInput] = useState('');
