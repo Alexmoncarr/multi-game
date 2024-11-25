@@ -1,0 +1,25 @@
+
+@startuml
+class React {
+}
+
+class ReactDOM {
+    +createRoot(element: HTMLElement): Root
+}
+
+class Root {
+    +render(element: ReactElement): void
+}
+
+class App {
+}
+
+class reportWebVitals {
+    +invoke(callback: Function): void
+}
+
+ReactDOM --> Root : creates >
+Root --> ReactElement : renders >
+Root --> App : renders >
+App --> React : uses >
+@enduml

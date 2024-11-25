@@ -1,0 +1,15 @@
+
+@startuml
+class GuessNumber {
+    +onBackToHome: Function
+    +render(): JSX.Element
+}
+
+class Test {
+    +rendersGuessNumberComponent(): void
+    +handlesGuessInputCorrectly(): void
+}
+
+Test --> GuessNumber : renders
+Test --> GuessNumber : handles input
+@enduml

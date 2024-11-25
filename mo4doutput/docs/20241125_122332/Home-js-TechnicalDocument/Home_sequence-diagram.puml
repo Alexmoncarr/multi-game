@@ -1,0 +1,29 @@
+
+@startuml
+actor User
+participant Home
+participant Game
+
+User -> Home: render()
+Home -> User: display "Selecciona un Juego"
+User -> Home: click button "Calculadora"
+Home -> Game: setGame('calculator')
+Game -> Home: Game Loaded
+Home -> User: Game Loaded
+User -> Home: click button "Tic-Tac-Toe"
+Home -> Game: setGame('tic-tac-toe')
+Game -> Home: Game Loaded
+Home -> User: Game Loaded
+User -> Home: click button "Piedra, Papel, Tijera"
+Home -> Game: setGame('rock-paper-scissors')
+Game -> Home: Game Loaded
+Home -> User: Game Loaded
+User -> Home: click button "Adivina el Número"
+Home -> Game: setGame('guess-number')
+Game -> Home: Game Loaded
+Home -> User: Game Loaded
+User -> Home: click button "Memoria"
+Home -> Game: setGame('memory-game')
+Game -> Home: Game Loaded
+Home -> User: Game Loaded
+@enduml

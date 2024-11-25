@@ -1,0 +1,26 @@
+
+@startuml
+class TicTacToe {
+    - gameMode: GameMode
+    + handleBackToHome(): void
+}
+
+class Game {
+    - mode: string
+    - difficulty: string
+    + onBackToHome(): void
+}
+
+class Home {
+    + setGameMode(gameMode: GameMode): void
+}
+
+class GameMode {
+    - mode: string
+    - difficulty: string
+}
+
+TicTacToe --> Game : uses
+TicTacToe --> Home : uses
+TicTacToe --> GameMode : holds
+@enduml

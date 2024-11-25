@@ -1,0 +1,60 @@
+<html><head><title> Technical Documentation - c:\Users\a930536\OneDrive - Eviden\Escritorio\multi-game-app\src\components\HomeRock.js </title>  <!-- Include CSS for styling the header -->
+<style>
+        /* Style the header */
+body {background-color: whitesmoke; padding:10px;}a { text-decoration: none; color: black; }header   { background:gray; color:whitesmoke; border-radius: 5px;}.hh1   { padding: 10px;}.hh2   { padding: 10px; background:#413a31; color:whitesmoke; border-radius: 5px; font-size:24px; font-weight:bold;	}p	{ padding: 10px; line-height: 1.25rem; letter-spacing: 0.02rem;}li	{ list-style-type: circle; line-height: 1.25rem; }footer { background-color: #333;color: #fff;text-align: center;padding-left: 10px;padding-right: 10px;height:5%;display:flex;justify-content:center;align-items:center;} 
+</style>  <script src="https://machineone4delivery.net/js/marked.min.js"></script> <script src="https://machineone4delivery.net/js/highlight.min.js"></script>
+<link rel="stylesheet" href="https://machineone4delivery.net/js/default.min.css"> </head><body> <!-- Header Section -->
+    <header>
+       <div class="hh2"> Technical Document - HomeRock.js </div>
+        <p>Version 1.0</p>
+    </header> <!-- Table of Contents -->
+    <nav>
+        <div class="hh2">Table of Contents</div>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#summary">Class Summary</a></li>
+            <li><a href="#class-diagram">Class Diagram</a></li>
+            <li><a href="#sequence-diagram">Sequence Diagram</a></li>
+            <li><a href="#time-complexity">Time Complexity</a></li>
+            <li><a href="#review-comment">Review Comment</a></li>
+        </ul>
+    </nav> <!-- Introduction Section -->
+    <section id="introduction">
+        <div class="hh2">Introduction</div>
+        <p>Provide a technical overview of the class, its purpose, and its features.</p>
+    </section>  <!-- Summary Section -->
+    <section id="summary">
+        <div class="hh2">Class Summary</div>
+
+ <h3>Explanation -</h3>
+ <p>**Code Summary for Documentation:**<br><br>The `HomeRock` component is a functional React component designed for a game interface titled "Piedra, Papel, Tijera" (Rock, Paper, Scissors). It serves as the entry point for users to select their game mode. The component accepts two props: `setGameMode`, a function that updates the current mode of the game, and `onBackToHome`, a function that navigates the user back to the home screen.<br><br>Within the component, a `div` with a class of "home" is rendered, which contains a heading (`h1`) that displays the game's title. Below the title, there are three buttons:<br><br>1. **Un Jugador (Single Player)**: When clicked, this button triggers the `setGameMode` function with the argument `'single'`, indicating that the user has chosen the single-player mode.<br>   <br>2. **Dos Jugadores (Two Players)**: Similar to the first button, this button sets the game mode to multiplayer by calling `setGameMode` with the argument `'multi'`.<br>   <br>3. **Back to Home**: This button, styled with a class of "back-button", invokes the `onBackToHome` function when clicked, allowing the user to return to the previous screen or home interface.<br><br>The `HomeRock` component effectively encapsulates the user interface for selecting game modes while providing necessary callbacks for state management and navigation. It is a straightforward implementation that adheres to React's component architecture, ensuring reusability and maintainability within a larger application context. The code is clean and follows best practices for handling user interactions in a React environment.</p>
+ </section>  <!-- Class Diagram< -->
+    <section id="class-diagram">
+        <div class="hh2">Class Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\HomeRock-js-TechnicalDocument\HomeRock_class-diagram.png"alt="Class Diagram"><br/><br/>    </section>  <!-- Sequence Diagram< -->
+    <section id="sequence-diagram">
+        <div class="hh2">Sequence Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\HomeRock-js-TechnicalDocument\HomeRock_sequence-diagram.png"alt="Sequence Diagram"><br/><br/>    </section>  <!-- Time Complexity< -->
+    <section id="time-complexity">
+        <div class="hh2">Time Complexity</div>
+        <p>**Time Complexity Analysis**<br><br>The provided code snippet is a React functional component named `HomeRock`. This component renders a simple user interface with a title and three buttons. The time complexity analysis focuses on the rendering process and the event handling defined within the component.<br><br>1. **Rendering Time Complexity**: <br>   - The component consists of a static structure that includes a header and three buttons. Rendering this component involves a straightforward operation where the JSX is converted into React elements.<br>   - This rendering process is O(1) because it does not depend on the size of any input or state; it always performs a constant number of operations regardless of any variable factors.<br><br>2. **Event Handling Time Complexity**:<br>   - Each button has an `onClick` event that triggers a function. The functions `setGameMode` and `onBackToHome` are invoked upon clicking the respective buttons.<br>   - Assuming that `setGameMode` and `onBackToHome` are constant time operations (which is typical for setter functions in React), the time complexity for each button click is also O(1).<br><br>3. **Overall Time Complexity**:<br>   - The overall time complexity of the `HomeRock` component is O(1) for both rendering and event handling. This indicates that the component performs a constant amount of work, independent of any external variables or inputs.<br><br>In conclusion, the `HomeRock` component has a time complexity of O(1), making it efficient in terms of rendering and handling user interactions.</p>
+    </section>  <!-- Review-comment< -->
+    <section id="review-comment">
+        <div class="hh2"> Review </div>
+        <p>**Code Review Summary**<br><br>1. **Identified Issues**: <br>   - The component lacks PropTypes or TypeScript for type checking, which can lead to bugs if the wrong types are passed.<br>   - No error handling is implemented for the `setGameMode` and `onBackToHome` functions, which could lead to runtime errors if these functions are not defined or do not behave as expected.<br><br>2. **Recommendations for Improvement**:<br>   - Consider adding PropTypes or TypeScript to define the expected types of the props `setGameMode` and `onBackToHome`. This will help catch errors during development.<br>   - Implement error handling for the button click handlers to manage cases where the props might not function as intended.<br><br>3. **Areas of Strength**:<br>   - The component is simple and follows a clear structure, making it easy to read and understand.<br>   - The use of functional components and arrow functions is modern and aligns with current React best practices.<br><br>4. **Potential Bugs**:<br>   - If `setGameMode` or `onBackToHome` is not passed as props from the parent component, it will result in a runtime error when the buttons are clicked. Adding default props or checks can mitigate this.<br><br>5. **Performance Bottlenecks**:<br>   - The current implementation is lightweight and does not present any significant performance concerns. However, if the component were to grow in complexity or manage a significant amount of state, consider using `React.memo` or `useCallback` for performance optimization.<br><br>6. **Security Vulnerabilities**:<br>   - There are no apparent security vulnerabilities in this small code snippet. However, always ensure that any external input or state management does not expose the application to XSS or other injection attacks.<br><br>7. **Overall Code Quality Assessment**:<br>   - The code quality is assessed as a **7/10**. The component is clean and functional but could benefit from type checking and additional error handling to enhance robustness and maintainability.</p>
+    </section><footer><div><div style="float:left;padding-top:3px;">25-11-2024 12:31:03</div><img src="logo_icon.png" alt="logo" style="width: 6%;float:right;"></div></footer><script>
+    // Function to convert Markdown content inside <p> tags to HTML
+    function convertMarkdownToHTML() {
+      // Get all <p> elements
+      const paragraphs = document.querySelectorAll('p');
+      // Loop through the <p> elements using a for loop
+      for (let i = 0; i < paragraphs.length; i++) {
+        const markdownText = paragraphs[i].innerText; // Get markdown content
+        const htmlContent = marked.parse(markdownText); // Convert to HTML
+        paragraphs[i].outerHTML = htmlContent; // Set converted HTML inside <p>
+      }
+    }
+ 
+    // Immediately call the function
+    convertMarkdownToHTML();
+</script> <script>hljs.highlightAll();</script></body></html>

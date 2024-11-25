@@ -1,0 +1,17 @@
+
+@startuml
+class Board {
+    - isSinglePlayer: boolean
+    - difficulty: string
+    - onBackToHome: function
+    + render(): JSX.Element
+    + handleSquareClick(index: number): void
+}
+
+class Test {
+    + rendersBoardComponent(): void
+    + handlesSquareClickCorrectly(): void
+}
+
+Test --> Board : uses
+@enduml

@@ -1,0 +1,17 @@
+
+@startuml
+actor User
+participant "RockPaperScissors" as RPS
+participant "Testing Library" as TL
+
+User -> TL : render(RockPaperScissors)
+TL -> RPS : render(mode="single", onBackToHome={})
+RPS -> TL : display "Piedra"
+TL -> User : expect to find "Piedra"
+
+User -> TL : fireEvent.click("Piedra")
+TL -> RPS : click("Piedra")
+RPS -> TL : update player1Elements
+TL -> User : expect player1Elements.length > 0
+
+@enduml

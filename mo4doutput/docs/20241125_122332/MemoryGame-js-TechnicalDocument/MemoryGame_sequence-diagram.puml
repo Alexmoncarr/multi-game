@@ -1,0 +1,32 @@
+
+@startuml
+actor User
+participant MemoryGame
+participant CardGenerator
+participant useEffect
+participant State
+
+User -> MemoryGame: Render component
+MemoryGame -> CardGenerator: generateCards()
+CardGenerator -> State: Create cards
+State -> MemoryGame: Return cards
+
+User -> MemoryGame: Click on card
+MemoryGame -> State: Update flippedCards with clicked card
+MemoryGame -> State: Update card flipped state
+
+alt If two cards are flipped
+    MemoryGame -> useEffect: Check for a match
+    useEffect -> State: Compare symbols
+    alt If matched
+        State -> MemoryGame: Update matched state
+        MemoryGame -> State: Increment matchedPairs
+    else If not matched
+        State -> MemoryGame: Set timeout to flip cards back
+        MemoryGame -> State: Update card flipped state
+    end
+end
+
+User -> MemoryGame: Click on Back to Home
+MemoryGame -> User: Trigger onBackToHome function
+@enduml

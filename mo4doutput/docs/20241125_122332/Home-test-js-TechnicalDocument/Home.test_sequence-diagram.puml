@@ -1,0 +1,29 @@
+
+@startuml
+actor User
+participant Home
+participant SetGameFunction
+
+User -> Home : render(<Home setGame={() => {}} />)
+Home -> User : display "Selecciona un Juego"
+
+User -> Home : click "Calculadora"
+Home -> SetGameFunction : setGame('calculator')
+SetGameFunction -> User : return
+
+User -> Home : click "Tic-Tac-Toe"
+Home -> SetGameFunction : setGame('tic-tac-toe')
+SetGameFunction -> User : return
+
+User -> Home : click "Piedra, Papel, Tijera"
+Home -> SetGameFunction : setGame('rock-paper-scissors')
+SetGameFunction -> User : return
+
+User -> Home : click "Adivina el Número"
+Home -> SetGameFunction : setGame('guess-number')
+SetGameFunction -> User : return
+
+User -> Home : click "Memoria"
+Home -> SetGameFunction : setGame('memory-game')
+SetGameFunction -> User : return
+@enduml

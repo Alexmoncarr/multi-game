@@ -1,0 +1,60 @@
+<html><head><title> Technical Documentation - c:\Users\a930536\OneDrive - Eviden\Escritorio\multi-game-app\src\components\Home.js </title>  <!-- Include CSS for styling the header -->
+<style>
+        /* Style the header */
+body {background-color: whitesmoke; padding:10px;}a { text-decoration: none; color: black; }header   { background:gray; color:whitesmoke; border-radius: 5px;}.hh1   { padding: 10px;}.hh2   { padding: 10px; background:#413a31; color:whitesmoke; border-radius: 5px; font-size:24px; font-weight:bold;	}p	{ padding: 10px; line-height: 1.25rem; letter-spacing: 0.02rem;}li	{ list-style-type: circle; line-height: 1.25rem; }footer { background-color: #333;color: #fff;text-align: center;padding-left: 10px;padding-right: 10px;height:5%;display:flex;justify-content:center;align-items:center;} 
+</style>  <script src="https://machineone4delivery.net/js/marked.min.js"></script> <script src="https://machineone4delivery.net/js/highlight.min.js"></script>
+<link rel="stylesheet" href="https://machineone4delivery.net/js/default.min.css"> </head><body> <!-- Header Section -->
+    <header>
+       <div class="hh2"> Technical Document - Home.js </div>
+        <p>Version 1.0</p>
+    </header> <!-- Table of Contents -->
+    <nav>
+        <div class="hh2">Table of Contents</div>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#summary">Class Summary</a></li>
+            <li><a href="#class-diagram">Class Diagram</a></li>
+            <li><a href="#sequence-diagram">Sequence Diagram</a></li>
+            <li><a href="#time-complexity">Time Complexity</a></li>
+            <li><a href="#review-comment">Review Comment</a></li>
+        </ul>
+    </nav> <!-- Introduction Section -->
+    <section id="introduction">
+        <div class="hh2">Introduction</div>
+        <p>Provide a technical overview of the class, its purpose, and its features.</p>
+    </section>  <!-- Summary Section -->
+    <section id="summary">
+        <div class="hh2">Class Summary</div>
+
+ <h3>Explanation -</h3>
+ <p>**Code Summary for Documentation:**<br><br>The provided code is a React functional component named `Home`, designed to serve as a user interface for selecting various games. This component takes a single prop, `setGame`, which is a function intended to update the current game state in the parent component.<br><br>### Breakdown of the Component:<br><br>1. **Imports**: The component imports React from the 'react' library, which is essential for building user interfaces in a declarative manner.<br><br>2. **Function Declaration**: The `Home` function component is defined, receiving `props` destructured to obtain the `setGame` function.<br><br>3. **JSX Structure**: <br>   - The component returns a `div` element with the class name "home".<br>   - Inside the `div`, there is an `h1` header that prompts the user to select a game.<br>   - Below the header, there are five buttons, each corresponding to a different game: <br>     - Calculadora (Calculator)<br>     - Tic-Tac-Toe<br>     - Piedra, Papel, Tijera (Rock, Paper, Scissors)<br>     - Adivina el Número (Guess the Number)<br>     - Memoria (Memory Game)<br><br>4. **Button Functionality**: Each button has an `onClick` event handler that calls the `setGame` function with a string argument representing the selected game. This approach allows the parent component to know which game the user has chosen and update the state accordingly.<br><br>5. **Export Statement**: The component is exported as the default export, making it available for import in other parts of the application.<br><br>### Usage:<br><br>This `Home` component is likely used as part of a larger application, where the selected game will be displayed based on the user's choice. The clear and interactive design enhances user experience by providing an easy method to navigate through different games.</p>
+ </section>  <!-- Class Diagram< -->
+    <section id="class-diagram">
+        <div class="hh2">Class Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\Home-js-TechnicalDocument\Home_class-diagram.png"alt="Class Diagram"><br/><br/>    </section>  <!-- Sequence Diagram< -->
+    <section id="sequence-diagram">
+        <div class="hh2">Sequence Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\Home-js-TechnicalDocument\Home_sequence-diagram.png"alt="Sequence Diagram"><br/><br/>    </section>  <!-- Time Complexity< -->
+    <section id="time-complexity">
+        <div class="hh2">Time Complexity</div>
+        <p># Time Complexity Analysis<br><br>The provided code snippet is a functional React component named `Home`. This component renders a simple user interface with a title and a series of buttons that allow the user to select a game. The main focus of the time complexity analysis will be on the operations performed when the buttons are clicked.<br><br>### Breakdown of Operations<br><br>1. **Rendering the Component**:<br>   - The rendering of the `Home` component is a constant time operation, O(1). It involves creating the DOM elements (a title and five buttons). The number of buttons is fixed (five in this case), which contributes to the constant time complexity.<br><br>2. **Button Click Events**:<br>   - Each button has an `onClick` event handler that invokes the `setGame` function with a specific string argument related to the game selection. The operation of calling a function and passing a parameter is also considered a constant time operation, O(1).<br><br>### Overall Complexity<br><br>Since the rendering and the click event handling are both O(1) operations, the overall time complexity of the `Home` component can be summarized as:<br><br>- **Time Complexity**: O(1)<br><br>This indicates that the time taken for rendering the component and handling button clicks does not depend on the size of any input but remains constant regardless of the context in which the component is used.</p>
+    </section>  <!-- Review-comment< -->
+    <section id="review-comment">
+        <div class="hh2"> Review </div>
+        <p>**Code Review Summary**<br><br>**Identified Issues:**<br>- The component is simple and does not contain any major issues; however, there are some areas that could benefit from enhancements.<br><br>**Recommendations for Improvement:**<br>1. **Accessibility**: Consider adding `aria-labels` to the buttons for screen readers to provide better accessibility for users with disabilities.<br>2. **Button Handling**: Instead of using inline arrow functions in the `onClick` handlers, define separate handler functions. This can improve readability and performance, as it avoids creating new function instances on every render.<br>3. **Prop Type Validation**: Add PropTypes to define the expected types for props. This can help catch errors during development.<br><br>**Areas of Strength:**<br>- The component is clean and easy to read, following a straightforward functional component structure.<br>- The use of descriptive button labels enhances usability and comprehension for users.<br><br>**Potential Bugs:**<br>- No potential bugs are identified in the current implementation. However, ensure that `setGame` is a valid function passed from the parent component to avoid runtime errors.<br><br>**Performance Bottlenecks:**<br>- There are no significant performance bottlenecks due to the simplicity of the component. However, using separate handler functions could slightly improve performance by preventing unnecessary re-renders.<br><br>**Security Vulnerabilities:**<br>- There are no obvious security vulnerabilities in this snippet. However, always ensure that input handling and state management follow best practices as the application scales.<br><br>**Overall Code Quality Assessment:**<br>- **Score: 8/10**: The code is well-structured and straightforward, demonstrating good practices but could be improved with better accessibility, prop validation, and refactoring of event handlers for clarity and performance.</p>
+    </section><footer><div><div style="float:left;padding-top:3px;">25-11-2024 12:31:58</div><img src="logo_icon.png" alt="logo" style="width: 6%;float:right;"></div></footer><script>
+    // Function to convert Markdown content inside <p> tags to HTML
+    function convertMarkdownToHTML() {
+      // Get all <p> elements
+      const paragraphs = document.querySelectorAll('p');
+      // Loop through the <p> elements using a for loop
+      for (let i = 0; i < paragraphs.length; i++) {
+        const markdownText = paragraphs[i].innerText; // Get markdown content
+        const htmlContent = marked.parse(markdownText); // Convert to HTML
+        paragraphs[i].outerHTML = htmlContent; // Set converted HTML inside <p>
+      }
+    }
+ 
+    // Immediately call the function
+    convertMarkdownToHTML();
+</script> <script>hljs.highlightAll();</script></body></html>

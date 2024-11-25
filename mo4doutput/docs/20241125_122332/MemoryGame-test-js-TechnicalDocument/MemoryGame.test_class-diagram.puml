@@ -1,0 +1,25 @@
+
+@startuml
+class MemoryGame {
+    +onBackToHome: Function
+    +render(): JSX.Element
+    +handleCardClick(cardIndex: number): void
+}
+
+class TestMemoryGame {
+    +test(title: string, fn: Function): void
+}
+
+class Render {
+    +getByText(text: string): HTMLElement
+    +querySelectorAll(selector: string): NodeList
+}
+
+class FireEvent {
+    +click(element: HTMLElement): void
+}
+
+MemoryGame --> Render : uses
+MemoryGame --> FireEvent : uses
+TestMemoryGame --> MemoryGame : tests
+@enduml

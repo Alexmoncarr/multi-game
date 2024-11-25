@@ -1,0 +1,15 @@
+
+@startuml
+actor User
+participant Home
+participant setGameMode
+
+User -> Home : renders component
+Home -> User : displays title "Tic Tac Toe"
+User -> Home : clicks "Single Player (Medium)"
+Home -> setGameMode : setGameMode({ mode: 'single', difficulty: 'medium' })
+User -> Home : clicks "Single Player (Hard)"
+Home -> setGameMode : setGameMode({ mode: 'single', difficulty: 'hard' })
+User -> Home : clicks "Two Players"
+Home -> setGameMode : setGameMode({ mode: 'multi' })
+@enduml

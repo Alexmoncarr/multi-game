@@ -1,0 +1,18 @@
+
+@startuml
+class Game {
+  - mode: String
+  - difficulty: String
+  - onBackToHome: Function
+  + Game(mode: String, difficulty: String, onBackToHome: Function)
+}
+
+class Board {
+  - isSinglePlayer: Boolean
+  - difficulty: String
+  - onBackToHome: Function
+  + Board(isSinglePlayer: Boolean, difficulty: String, onBackToHome: Function)
+}
+
+Game --> Board : uses
+@enduml

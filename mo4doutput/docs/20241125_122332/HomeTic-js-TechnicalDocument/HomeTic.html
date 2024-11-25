@@ -1,0 +1,60 @@
+<html><head><title> Technical Documentation - c:\Users\a930536\OneDrive - Eviden\Escritorio\multi-game-app\src\components\HomeTic.js </title>  <!-- Include CSS for styling the header -->
+<style>
+        /* Style the header */
+body {background-color: whitesmoke; padding:10px;}a { text-decoration: none; color: black; }header   { background:gray; color:whitesmoke; border-radius: 5px;}.hh1   { padding: 10px;}.hh2   { padding: 10px; background:#413a31; color:whitesmoke; border-radius: 5px; font-size:24px; font-weight:bold;	}p	{ padding: 10px; line-height: 1.25rem; letter-spacing: 0.02rem;}li	{ list-style-type: circle; line-height: 1.25rem; }footer { background-color: #333;color: #fff;text-align: center;padding-left: 10px;padding-right: 10px;height:5%;display:flex;justify-content:center;align-items:center;} 
+</style>  <script src="https://machineone4delivery.net/js/marked.min.js"></script> <script src="https://machineone4delivery.net/js/highlight.min.js"></script>
+<link rel="stylesheet" href="https://machineone4delivery.net/js/default.min.css"> </head><body> <!-- Header Section -->
+    <header>
+       <div class="hh2"> Technical Document - HomeTic.js </div>
+        <p>Version 1.0</p>
+    </header> <!-- Table of Contents -->
+    <nav>
+        <div class="hh2">Table of Contents</div>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#summary">Class Summary</a></li>
+            <li><a href="#class-diagram">Class Diagram</a></li>
+            <li><a href="#sequence-diagram">Sequence Diagram</a></li>
+            <li><a href="#time-complexity">Time Complexity</a></li>
+            <li><a href="#review-comment">Review Comment</a></li>
+        </ul>
+    </nav> <!-- Introduction Section -->
+    <section id="introduction">
+        <div class="hh2">Introduction</div>
+        <p>Provide a technical overview of the class, its purpose, and its features.</p>
+    </section>  <!-- Summary Section -->
+    <section id="summary">
+        <div class="hh2">Class Summary</div>
+
+ <h3>Explanation -</h3>
+ <p>**Code Summary for Documentation:**<br><br>The provided code defines a functional React component named `Home`, which serves as the landing page for a Tic Tac Toe game application. This component receives a prop called `setGameMode`, a function designed to update the game's mode and difficulty level based on user interactions.<br><br>Within the component, a simple JSX structure is returned, which includes a heading and three buttons. Each button corresponds to a different game mode configuration:<br><br>1. **Single Player (Medium)**: When clicked, this button invokes the `setGameMode` function with an object that specifies the game mode as 'single' and sets the difficulty level to 'medium'.<br>   <br>2. **Single Player (Hard)**: Similar to the first button, this one sets the game mode to 'single' but changes the difficulty level to 'hard' upon being clicked.<br><br>3. **Two Players**: This button allows users to start a game with another player. It calls `setGameMode` with an object that only specifies the mode as 'multi', indicating a two-player game without a difficulty setting.<br><br>The component is styled with a `className` of "home" to facilitate custom styling through CSS. The use of functional components and hooks aligns with modern React practices, promoting cleaner and more maintainable code. <br><br>Finally, the `Home` component is exported as the default export of the module, making it available for import in other parts of the application, such as the main app component or routing setup. Overall, this component plays a crucial role in setting up the game environment by allowing users to select their preferred mode of play.</p>
+ </section>  <!-- Class Diagram< -->
+    <section id="class-diagram">
+        <div class="hh2">Class Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\HomeTic-js-TechnicalDocument\HomeTic_class-diagram.png"alt="Class Diagram"><br/><br/>    </section>  <!-- Sequence Diagram< -->
+    <section id="sequence-diagram">
+        <div class="hh2">Sequence Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\HomeTic-js-TechnicalDocument\HomeTic_sequence-diagram.png"alt="Sequence Diagram"><br/><br/>    </section>  <!-- Time Complexity< -->
+    <section id="time-complexity">
+        <div class="hh2">Time Complexity</div>
+        <p>**Time Complexity Analysis**<br><br>The provided code snippet is a simple React functional component that renders a user interface for a Tic Tac Toe game. The component contains three buttons that allow the user to select the game mode. Each button triggers an `onClick` event that calls the `setGameMode` function with specific parameters.<br><br>### Breakdown of the Code:<br><br>1. **Rendering the Component**:<br>   - The component renders a `div` containing an `h1` element and three buttons. The rendering process is considered O(1) since the number of elements does not depend on any variable input size.<br><br>2. **Button Click Handlers**:<br>   - Each button has an `onClick` handler that calls the `setGameMode` function. Each of these function calls is executed in constant time O(1) as they involve creating an object and passing it to the `setGameMode` function.<br><br>3. **Overall Time Complexity**:<br>   - Since the rendering of the component and the button click handlers both operate in constant time, the overall time complexity of this component remains O(1).<br><br>### Conclusion:<br>The time complexity of the `Home` component is O(1), indicating that it executes in constant time regardless of any input size or state changes. The operations within this component are efficient and do not involve loops or recursive calls that would increase complexity.</p>
+    </section>  <!-- Review-comment< -->
+    <section id="review-comment">
+        <div class="hh2"> Review </div>
+        <p>**Code Review Summary**<br><br>**Identified Issues:**<br>- No significant issues were found in the code snippet. However, there are some improvements that can be made.<br><br>**Recommendations for Improvement:**<br>1. **Button Accessibility:**<br>   - Consider adding `aria-label` attributes to buttons for better accessibility, especially for screen readers.<br>   <br>2. **Function Extraction:**<br>   - The inline functions in the `onClick` handlers could be extracted to separate methods to improve readability and maintainability. This would also help avoid re-creation of functions on each render.<br><br>3. **PropTypes Validation:**<br>   - Implement PropTypes to validate the `setGameMode` prop. This helps in catching potential issues during development.<br><br>**Areas of Strength:**<br>- The code is clean and follows React best practices.<br>- It uses functional components, which is a modern approach in React development.<br>- The structure is straightforward and easy to understand.<br><br>**Potential Bugs:**<br>- If `setGameMode` is not properly passed as a prop, it may lead to runtime errors. Ensuring that this prop is always provided is crucial.<br><br>**Performance Bottlenecks:**<br>- While there aren’t any significant performance issues in this snippet, the inline function creation in the `onClick` handlers can lead to unnecessary re-renders. This can be mitigated by defining the handlers outside the JSX.<br><br>**Security Vulnerabilities:**<br>- No direct security vulnerabilities are identified in this code snippet, but always ensure that the `setGameMode` function does not expose any sensitive logic that could be exploited.<br><br>**Overall Code Quality Assessment:**<br>- **Score: 8/10**  <br>  The code is well-structured and adheres to React conventions. Minor improvements can enhance readability, maintainability, and performance. The absence of PropTypes and accessibility considerations are areas for enhancement.</p>
+    </section><footer><div><div style="float:left;padding-top:3px;">25-11-2024 12:30:08</div><img src="logo_icon.png" alt="logo" style="width: 6%;float:right;"></div></footer><script>
+    // Function to convert Markdown content inside <p> tags to HTML
+    function convertMarkdownToHTML() {
+      // Get all <p> elements
+      const paragraphs = document.querySelectorAll('p');
+      // Loop through the <p> elements using a for loop
+      for (let i = 0; i < paragraphs.length; i++) {
+        const markdownText = paragraphs[i].innerText; // Get markdown content
+        const htmlContent = marked.parse(markdownText); // Convert to HTML
+        paragraphs[i].outerHTML = htmlContent; // Set converted HTML inside <p>
+      }
+    }
+ 
+    // Immediately call the function
+    convertMarkdownToHTML();
+</script> <script>hljs.highlightAll();</script></body></html>

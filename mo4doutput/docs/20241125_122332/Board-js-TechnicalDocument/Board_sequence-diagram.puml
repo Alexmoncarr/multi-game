@@ -1,0 +1,46 @@
+
+@startuml
+actor Player
+participant "Board" as Board
+participant "Square" as Square
+
+Player -> Board : renderSquare(0)
+Board -> Square : value=squares[0]
+Square -> Board : onClick(0)
+Board -> Board : handleClick(0)
+Board -> Board : calculateWinner(squares)
+alt if winner exists
+    Board -> Player : status = "Winner: X or O"
+else
+    Board -> Board : setSquares(newSquares)
+    Board -> Board : setXIsNext(!xIsNext)
+end
+
+Player -> Board : renderSquare(1)
+Board -> Square : value=squares[1]
+Square -> Board : onClick(1)
+Board -> Board : handleClick(1)
+Board -> Board : calculateWinner(squares)
+alt if winner exists
+    Board -> Player : status = "Winner: X or O"
+else
+    Board -> Board : setSquares(newSquares)
+    Board -> Board : setXIsNext(!xIsNext)
+end
+
+Player -> Board : renderSquare(2)
+Board -> Square : value=squares[2]
+Square -> Board : onClick(2)
+Board -> Board : handleClick(2)
+Board -> Board : calculateWinner(squares)
+alt if winner exists
+    Board -> Player : status = "Winner: X or O"
+else
+    Board -> Board : setSquares(newSquares)
+    Board -> Board : setXIsNext(!xIsNext)
+end
+
+Player -> Board : onBackToHome
+Board -> Player : return to home
+
+@enduml

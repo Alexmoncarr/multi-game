@@ -1,0 +1,25 @@
+
+@startuml
+class MemoryGame {
+    - cards: Card[]
+    - flippedCards: Card[]
+    - matchedPairs: int
+    + MemoryGame(onBackToHome: function)
+    + handleCardClick(card: Card): void
+    + resetGame(): void
+}
+
+class Card {
+    - id: int
+    - symbol: string
+    - flipped: boolean
+    - matched: boolean
+}
+
+class App {
+    + onBackToHome(): void
+}
+
+MemoryGame --> Card : uses
+App --> MemoryGame : creates
+@enduml

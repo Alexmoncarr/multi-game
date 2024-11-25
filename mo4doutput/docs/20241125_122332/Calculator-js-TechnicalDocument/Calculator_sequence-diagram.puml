@@ -1,0 +1,52 @@
+
+@startuml
+actor User
+
+User -> Calculator: opens
+Calculator -> Calculator: initialize state (input, result)
+
+User -> Calculator: click '1'
+Calculator -> Calculator: handleButtonClick('1')
+Calculator -> Calculator: update input to '1'
+
+User -> Calculator: click '2'
+Calculator -> Calculator: handleButtonClick('2')
+Calculator -> Calculator: update input to '12'
+
+User -> Calculator: click '+'
+Calculator -> Calculator: handleButtonClick('+')
+Calculator -> Calculator: update input to '12+'
+
+User -> Calculator: click '3'
+Calculator -> Calculator: handleButtonClick('3')
+Calculator -> Calculator: update input to '12+3'
+
+User -> Calculator: click '='
+Calculator -> Calculator: handleCalculate()
+Calculator -> Calculator: evaluate('12+3')
+Calculator -> Calculator: update result to '15'
+
+User -> Calculator: click 'C'
+Calculator -> Calculator: handleClear()
+Calculator -> Calculator: reset input and result
+
+User -> Calculator: click '7'
+Calculator -> Calculator: handleButtonClick('7')
+Calculator -> Calculator: update input to '7'
+
+User -> Calculator: click '*'
+Calculator -> Calculator: handleButtonClick('*')
+Calculator -> Calculator: update input to '7*'
+
+User -> Calculator: click '0'
+Calculator -> Calculator: handleButtonClick('0')
+Calculator -> Calculator: update input to '7*0'
+
+User -> Calculator: click '='
+Calculator -> Calculator: handleCalculate()
+Calculator -> Calculator: evaluate('7*0')
+Calculator -> Calculator: update result to '0'
+
+User -> Calculator: click 'Back to Home'
+Calculator -> Calculator: onBackToHome()
+@enduml

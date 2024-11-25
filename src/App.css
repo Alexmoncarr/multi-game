@@ -1,7 +1,17 @@
 /* General styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
   margin: 0;
   padding: 0;
   display: flex;
@@ -12,7 +22,7 @@ body {
 
 .App {
   text-align: center;
-  background-color: #fff;
+  background-color: #1e1e1e; /* Fondo oscuro para el contenedor principal */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -20,6 +30,7 @@ body {
 
 .home {
   margin-top: 50px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 button {
@@ -27,15 +38,16 @@ button {
   padding: 20px;
   font-size: 1.5em;
   cursor: pointer;
-  background-color:cadetblue;
+  background-color:#00796b;
   color: white;
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.3s;
+  outline: none;
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #004d40;
   transform: scale(1.05);
 }
 
@@ -43,6 +55,9 @@ button:active {
   background-color: #ccc;
 }
 
+button:focus {
+  outline: 2px solid #fff;
+}
 .game {
   margin-top: 50px;
 }
@@ -91,7 +106,7 @@ button:active {
 .card {
   width: 100px;
   height: 100px;
-  background-color: #fff;
+  background-color: #bebebe;
   border: 2px solid #999;
   font-size: 24px;
   font-weight: bold;
@@ -110,17 +125,18 @@ button:active {
 .square {
   width: 100px;
   height: 100px;
-  background-color: #fff;
+  background-color: #333;
   border: 2px solid #999;
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
   outline: none;
+  color: #e0e0e0;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .square:hover {
-  background-color: #ddd;
+  background-color: #444;
   transform: scale(1.05);
 }
 
@@ -128,6 +144,7 @@ button:active {
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 }
 
 .calculator {
@@ -136,16 +153,18 @@ button:active {
   gap: 10px;
   max-width: 400px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .display {
   grid-column: span 4;
-  background-color: #222;
+  background-color: #505050;
   color: #fff;
   text-align: right;
   padding: 20px;
   font-size: 2em;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 .buttons {
@@ -160,4 +179,49 @@ button:active {
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 10px;
+}
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.welcome {
+  text-align: center;
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.welcome h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+.welcome p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #b0b0b0;
+}
+
+.welcome button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.welcome button:hover {
+  background-color: #004d40;
+  transform: scale(1.05);
+}
+
+.welcome button:active {
+  background-color: #00332a;
 }

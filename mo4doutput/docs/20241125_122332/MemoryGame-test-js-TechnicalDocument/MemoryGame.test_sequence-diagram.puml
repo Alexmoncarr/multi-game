@@ -1,0 +1,31 @@
+
+@startuml
+actor User
+participant "MemoryGame" as Game
+participant "Testing Library" as Library
+
+User -> Library : render(MemoryGame)
+Library -> Game : render(onBackToHome)
+Game -> Library : return component
+Library -> User : render result
+
+User -> Library : getByText(/Memoria/i)
+Library -> Game : search for text
+Game -> Library : return text found
+Library -> User : expect text to be in the document
+
+User -> Library : render(MemoryGame)
+Library -> Game : render(onBackToHome)
+Game -> Library : return component
+Library -> User : render result
+
+User -> Library : querySelectorAll('.card')
+Library -> Game : get cards
+Game -> Library : return cards
+
+User -> Library : fireEvent.click(cards[0])
+Library -> Game : simulate click on card
+Game -> Library : flip card
+Library -> User : expect cards[0] to have class 'flipped'
+
+@enduml

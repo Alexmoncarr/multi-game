@@ -1,0 +1,26 @@
+
+@startuml
+class TicTacToe {
+    +onBackToHome: Function
+    +render(): JSX.Element
+    +handleSquareClick(index: number): void
+}
+
+class Test {
+    +render(component: JSX.Element): RenderResult
+    +fireEvent: FireEvent
+}
+
+class RenderResult {
+    +getByText(text: string): HTMLElement
+    +getAllByRole(role: string): HTMLElement[]
+}
+
+class FireEvent {
+    +click(element: HTMLElement): void
+}
+
+TicTacToe --> Test : uses
+Test --> RenderResult : creates
+Test --> FireEvent : utilizes
+@enduml

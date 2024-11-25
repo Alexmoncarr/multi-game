@@ -1,0 +1,8 @@
+
+@startuml
+package "jest-dom" {
+    class JestDom {
+        +toHaveTextContent(matcher: RegExp): void
+    }
+}
+@enduml

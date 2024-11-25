@@ -1,0 +1,15 @@
+
+@startuml
+actor User
+participant App
+participant TestingLibrary as TL
+
+User -> TL : render(<App />)
+TL -> App : Render component
+App -> TL : Component rendered
+
+TL -> App : screen.getByText(/Memoria/i)
+App -> TL : Return linkElement
+
+TL -> User : expect(linkElement).toBeInTheDocument()
+@enduml

@@ -1,0 +1,9 @@
+
+@startuml
+participant "Square" as Square
+participant "Button" as Button
+
+Square -> Button : onClick
+Button --> Square : value
+
+@enduml

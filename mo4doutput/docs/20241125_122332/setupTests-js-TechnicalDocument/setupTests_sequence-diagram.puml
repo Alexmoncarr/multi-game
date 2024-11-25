@@ -1,0 +1,13 @@
+
+@startuml
+actor User
+participant "Jest-DOM" as JestDOM
+participant "Testing Library" as TestingLib
+
+User -> JestDOM : Import '@testing-library/jest-dom'
+JestDOM -> TestingLib : Adds custom matchers
+TestingLib --> JestDOM : Custom matchers available
+User -> JestDOM : Use matcher expect(element).toHaveTextContent(/react/i)
+JestDOM --> User : Assertion result
+
+@enduml

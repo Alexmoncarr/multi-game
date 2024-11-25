@@ -1,0 +1,417 @@
+@startuml
+package "jest-dom" {
+    class JestDom {
+        +toHaveTextContent(matcher: RegExp): void
+    }
+}
+class ReportWebVitals {
+    +reportWebVitals(onPerfEntry: Function)
+}
+
+class WebVitals {
+    +getCLS(onPerfEntry: Function)
+    +getFID(onPerfEntry: Function)
+    +getFCP(onPerfEntry: Function)
+    +getLCP(onPerfEntry: Function)
+    +getTTFB(onPerfEntry: Function)
+}
+
+ReportWebVitals --> WebVitals : uses
+class React {
+}
+
+class ReactDOM {
+    +createRoot(element: HTMLElement): Root
+}
+
+class Root {
+    +render(element: ReactElement): void
+}
+
+class App {
+}
+
+class reportWebVitals {
+    +invoke(callback: Function): void
+}
+
+ReactDOM --> Root : creates >
+Root --> ReactElement : renders >
+Root --> App : renders >
+App --> React : uses >
+class TicTacToe {
+    +onBackToHome: Function
+    +render(): JSX.Element
+    +handleSquareClick(index: number): void
+}
+
+class Test {
+    +render(component: JSX.Element): RenderResult
+    +fireEvent: FireEvent
+}
+
+class RenderResult {
+    +getByText(text: string): HTMLElement
+    +getAllByRole(role: string): HTMLElement[]
+}
+
+class FireEvent {
+    +click(element: HTMLElement): void
+}
+
+TicTacToe --> Test : uses
+Test --> RenderResult : creates
+Test --> FireEvent : utilizes
+class TicTacToe {
+    - gameMode: GameMode
+    + handleBackToHome(): void
+}
+
+class Game {
+    - mode: string
+    - difficulty: string
+    + onBackToHome(): void
+}
+
+class Home {
+    + setGameMode(gameMode: GameMode): void
+}
+
+class GameMode {
+    - mode: string
+    - difficulty: string
+}
+
+TicTacToe --> Game : uses
+TicTacToe --> Home : uses
+TicTacToe --> GameMode : holds
+class Square {
+  +value: any
+  +onClick(): void
+  +render(): JSX.Element
+}
+
+Square : +Square(value: any, onClick: () => void)
+class RockPaperScissors {
+    +String mode
+    +Function onBackToHome()
+    +render()
+}
+
+class Test {
+    +void test(String description)
+    +void expect(Boolean condition)
+    +void fireEvent.click(Element element)
+    +Element getByText(String text)
+    +List<Element> getAllByText(String text)
+}
+
+Test -> RockPaperScissors : renders
+Test -> RockPaperScissors : handles choice click
+class RockPaperScissors {
+  - player1Choice: String
+  - player2Choice: String
+  - result: String
+  - choices: List<String>
+  + handleChoice(choice: String): void
+  - determineWinner(choice1: String, choice2: String): String
+  - resetGame(): void
+  + useEffect(): void
+  + render(): void
+}
+
+RockPaperScissors --> "1" useState
+RockPaperScissors --> "1" useEffect
+RockPaperScissors --> "1" onBackToHome
+class MemoryGame {
+    +onBackToHome: Function
+    +render(): JSX.Element
+    +handleCardClick(cardIndex: number): void
+}
+
+class TestMemoryGame {
+    +test(title: string, fn: Function): void
+}
+
+class Render {
+    +getByText(text: string): HTMLElement
+    +querySelectorAll(selector: string): NodeList
+}
+
+class FireEvent {
+    +click(element: HTMLElement): void
+}
+
+MemoryGame --> Render : uses
+MemoryGame --> FireEvent : uses
+TestMemoryGame --> MemoryGame : tests
+class MemoryGame {
+    - cards: Card[]
+    - flippedCards: Card[]
+    - matchedPairs: int
+    + MemoryGame(onBackToHome: function)
+    + handleCardClick(card: Card): void
+    + resetGame(): void
+}
+
+class Card {
+    - id: int
+    - symbol: string
+    - flipped: boolean
+    - matched: boolean
+}
+
+class App {
+    + onBackToHome(): void
+}
+
+MemoryGame --> Card : uses
+App --> MemoryGame : creates
+class HomeTic {
+    +setGameMode: Function
+    +render(): JSX.Element
+}
+
+class Test {
+    +getByText(text: string): HTMLElement
+    +toBeInTheDocument(): boolean
+    +toHaveBeenCalledWith(args: Object): boolean
+}
+
+class Render {
+    +render(component: JSX.Element): Test
+}
+
+class FireEvent {
+    +click(element: HTMLElement): void
+}
+
+HomeTic --> Render : uses
+HomeTic --> FireEvent : uses
+Render --> Test : creates
+FireEvent --> Test : interacts
+class Home {
+    +setGameMode(mode: {mode: string, difficulty: string}): void
+}
+
+Home --> "1" Button : triggers >
+class HomeRock {
+    +setGameMode(gameMode: string): void
+    +onBackToHome(): void
+}
+
+class TestingLibrary {
+    +render(component: ReactElement): RenderResult
+    +fireEvent(element: HTMLElement, event: string): void
+}
+
+class RenderResult {
+    +getByText(text: string): HTMLElement
+}
+
+class Jest {
+    +fn(): Function
+}
+
+HomeRock --> "1" TestingLibrary : uses
+HomeRock --> "1" Jest : mocks
+TestingLibrary --> "1" RenderResult : returns
+class HomeRock {
+    +setGameMode: Function
+    +onBackToHome: Function
+    +HomeRock(setGameMode: Function, onBackToHome: Function)
+    +render(): JSX.Element
+}
+
+HomeRock -> "setGameMode" : setGameMode(gameMode: String)
+HomeRock -> "onBackToHome" : onBackToHome()
+class Home {
+    + setGame(game: string): void
+}
+
+class Test {
+    + render(component: ReactElement): RenderResult
+    + fireEvent: FireEvent
+}
+
+class RenderResult {
+    + getByText(text: string): HTMLElement
+}
+
+class FireEvent {
+    + click(element: HTMLElement): void
+}
+
+Home --> Test
+Test --> RenderResult
+Test --> FireEvent
+class Home {
+    +setGame(game: String)
+    +render(): JSX.Element
+}
+
+Home : -gameOptions : String[]
+Home : +setGame(game: String)
+Home : +render()
+class GuessNumber {
+    +onBackToHome: Function
+    +render(): JSX.Element
+}
+
+class Test {
+    +rendersGuessNumberComponent(): void
+    +handlesGuessInputCorrectly(): void
+}
+
+Test --> GuessNumber : renders
+Test --> GuessNumber : handles input
+class GuessNumber {
+    - targetNumber: number
+    - guess: string
+    - message: string
+    + generateRandomNumber(): number
+    + handleGuess(): void
+    + handleReset(): void
+}
+
+GuessNumber --> "1" onBackToHome: function
+class Game {
+  - mode: String
+  - difficulty: String
+  - onBackToHome: Function
+  + Game(mode: String, difficulty: String, onBackToHome: Function)
+}
+
+class Board {
+  - isSinglePlayer: Boolean
+  - difficulty: String
+  - onBackToHome: Function
+  + Board(isSinglePlayer: Boolean, difficulty: String, onBackToHome: Function)
+}
+
+Game --> Board : uses
+class Calculator {
+    +onBackToHome: function
+    +render(): ReactElement
+    +add(a: number, b: number): number
+}
+
+class Test {
+    +render(component: ReactElement): object
+    +getByText(text: string): HTMLElement
+    +fireEvent: object
+}
+
+Calculator --> Test : uses
+class Calculator {
+    - input: string
+    - result: string
+    + handleButtonClick(value: string): void
+    + handleClear(): void
+    + handleCalculate(): void
+}
+
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+class Board {
+    - isSinglePlayer: boolean
+    - difficulty: string
+    - onBackToHome: function
+    + render(): JSX.Element
+    + handleSquareClick(index: number): void
+}
+
+class Test {
+    + rendersBoardComponent(): void
+    + handlesSquareClickCorrectly(): void
+}
+
+Test --> Board : uses
+class Board {
+    - squares: Array
+    - xIsNext: boolean
+    + handleClick(i: int): void
+    + minimax(squares: Array, depth: int, isMax: boolean): int
+    + findBestMove(squares: Array): int
+    + resetBoard(): void
+    + calculateWinner(squares: Array): String
+    + evaluate(squares: Array): int
+    + isMovesLeft(squares: Array): boolean
+    + findRandomMove(squares: Array): int
+}
+
+class Square {
+    - value: String
+    + onClick(): void
+}
+
+Board --> Square : uses
+class App {
+}
+
+class Test {
+    +render(component: React.Component): void
+    +getByText(text: string): HTMLElement
+    +toBeInTheDocument(): void
+}
+
+Test --> App : renders
+class App {
+    - game: String
+    - gameMode: String
+    + handleBackToHome(): void
+}
+
+class Home {
+    + setGame(game: String): void
+}
+
+class HomeRock {
+    + setGameMode(mode: String): void
+    + onBackToHome(): void
+}
+
+class GuessNumber {
+    + onBackToHome(): void
+}
+
+class MemoryGame {
+    + onBackToHome(): void
+}
+
+class TicTacToe {
+    + onBackToHome(): void
+}
+
+class Calculator {
+    + onBackToHome(): void
+}
+
+class RockPaperScissors {
+    + mode: String
+    + onBackToHome(): void
+}
+
+App --> Home
+App --> Calculator
+App --> TicTacToe
+App --> HomeRock
+App --> RockPaperScissors
+App --> GuessNumber
+App --> MemoryGame
+HomeRock --> RockPaperScissors
+@enduml

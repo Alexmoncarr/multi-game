@@ -1,0 +1,19 @@
+
+@startuml
+class RockPaperScissors {
+    +String mode
+    +Function onBackToHome()
+    +render()
+}
+
+class Test {
+    +void test(String description)
+    +void expect(Boolean condition)
+    +void fireEvent.click(Element element)
+    +Element getByText(String text)
+    +List<Element> getAllByText(String text)
+}
+
+Test -> RockPaperScissors : renders
+Test -> RockPaperScissors : handles choice click
+@enduml

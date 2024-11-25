@@ -1,0 +1,15 @@
+
+@startuml
+actor User
+participant "HomeTic" as HomeTicComponent
+participant "setGameMode" as SetGameModeFunction
+
+User -> HomeTicComponent : render()
+HomeTicComponent -> User : displays "Tic Tac Toe"
+
+User -> HomeTicComponent : click("Single Player (Medium)")
+HomeTicComponent -> SetGameModeFunction : setGameMode({ mode: 'single', difficulty: 'medium' })
+SetGameModeFunction -> HomeTicComponent : function called
+HomeTicComponent -> User : response to click
+
+@enduml

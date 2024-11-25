@@ -1,0 +1,17 @@
+
+@startuml
+class ReportWebVitals {
+    +reportWebVitals(onPerfEntry: Function)
+}
+
+class WebVitals {
+    +getCLS(onPerfEntry: Function)
+    +getFID(onPerfEntry: Function)
+    +getFCP(onPerfEntry: Function)
+    +getLCP(onPerfEntry: Function)
+    +getTTFB(onPerfEntry: Function)
+}
+
+ReportWebVitals --> WebVitals : uses
+
+@enduml

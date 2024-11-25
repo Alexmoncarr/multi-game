@@ -1,0 +1,72 @@
+
+@startuml
+actor User
+participant App
+participant Home
+participant Calculator
+participant TicTacToe
+participant HomeRock
+participant RockPaperScissors
+participant GuessNumber
+participant MemoryGame
+
+User -> App: Start Application
+App -> Home: Render Home
+Home -> User: Display Home Options
+
+User -> Home: Select Game (e.g., Calculator)
+Home -> App: setGame("calculator")
+App -> Calculator: Render Calculator
+Calculator -> User: Display Calculator
+
+User -> Calculator: Back to Home
+Calculator -> App: onBackToHome()
+App -> App: setGame(null)
+App -> Home: Render Home
+
+User -> Home: Select Game (e.g., TicTacToe)
+Home -> App: setGame("tic-tac-toe")
+App -> TicTacToe: Render TicTacToe
+TicTacToe -> User: Display TicTacToe
+
+User -> TicTacToe: Back to Home
+TicTacToe -> App: onBackToHome()
+App -> App: setGame(null)
+App -> Home: Render Home
+
+User -> Home: Select Game (e.g., Rock-Paper-Scissors)
+Home -> App: setGame("rock-paper-scissors")
+App -> HomeRock: Render HomeRock
+HomeRock -> User: Display Rock-Paper-Scissors Options
+
+User -> HomeRock: Select Mode
+HomeRock -> App: setGameMode("mode")
+App -> RockPaperScissors: Render RockPaperScissors
+RockPaperScissors -> User: Display Rock-Paper-Scissors
+
+User -> RockPaperScissors: Back to Home
+RockPaperScissors -> App: onBackToHome()
+App -> App: setGame(null)
+App -> Home: Render Home
+
+User -> Home: Select Game (e.g., GuessNumber)
+Home -> App: setGame("guess-number")
+App -> GuessNumber: Render GuessNumber
+GuessNumber -> User: Display GuessNumber
+
+User -> GuessNumber: Back to Home
+GuessNumber -> App: onBackToHome()
+App -> App: setGame(null)
+App -> Home: Render Home
+
+User -> Home: Select Game (e.g., MemoryGame)
+Home -> App: setGame("memory-game")
+App -> MemoryGame: Render MemoryGame
+MemoryGame -> User: Display MemoryGame
+
+User -> MemoryGame: Back to Home
+MemoryGame -> App: onBackToHome()
+App -> App: setGame(null)
+App -> Home: Render Home
+
+@enduml

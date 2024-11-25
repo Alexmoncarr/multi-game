@@ -1,0 +1,60 @@
+<html><head><title> Technical Documentation - c:\Users\a930536\OneDrive - Eviden\Escritorio\multi-game-app\src\components\HomeRock.test.js </title>  <!-- Include CSS for styling the header -->
+<style>
+        /* Style the header */
+body {background-color: whitesmoke; padding:10px;}a { text-decoration: none; color: black; }header   { background:gray; color:whitesmoke; border-radius: 5px;}.hh1   { padding: 10px;}.hh2   { padding: 10px; background:#413a31; color:whitesmoke; border-radius: 5px; font-size:24px; font-weight:bold;	}p	{ padding: 10px; line-height: 1.25rem; letter-spacing: 0.02rem;}li	{ list-style-type: circle; line-height: 1.25rem; }footer { background-color: #333;color: #fff;text-align: center;padding-left: 10px;padding-right: 10px;height:5%;display:flex;justify-content:center;align-items:center;} 
+</style>  <script src="https://machineone4delivery.net/js/marked.min.js"></script> <script src="https://machineone4delivery.net/js/highlight.min.js"></script>
+<link rel="stylesheet" href="https://machineone4delivery.net/js/default.min.css"> </head><body> <!-- Header Section -->
+    <header>
+       <div class="hh2"> Technical Document - HomeRock.test.js </div>
+        <p>Version 1.0</p>
+    </header> <!-- Table of Contents -->
+    <nav>
+        <div class="hh2">Table of Contents</div>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#summary">Class Summary</a></li>
+            <li><a href="#class-diagram">Class Diagram</a></li>
+            <li><a href="#sequence-diagram">Sequence Diagram</a></li>
+            <li><a href="#time-complexity">Time Complexity</a></li>
+            <li><a href="#review-comment">Review Comment</a></li>
+        </ul>
+    </nav> <!-- Introduction Section -->
+    <section id="introduction">
+        <div class="hh2">Introduction</div>
+        <p>Provide a technical overview of the class, its purpose, and its features.</p>
+    </section>  <!-- Summary Section -->
+    <section id="summary">
+        <div class="hh2">Class Summary</div>
+
+ <h3>Explanation -</h3>
+ <p>**Code Summary for Documentation:**<br><br>The provided code is a set of unit tests for a React component named `HomeRock`, using the React Testing Library. The tests ensure that the component renders correctly and that user interactions function as expected.<br><br>1. **Imports**: The code begins by importing necessary modules from React and the testing library. It imports `render` and `fireEvent` from `@testing-library/react`, which are essential for rendering components and simulating user events, respectively. The `HomeRock` component is also imported for testing.<br><br>2. **First Test - Rendering**: The first test case validates that the `HomeRock` component renders correctly. It uses the `render` function to mount the component, passing empty functions for the `setGameMode` and `onBackToHome` props. The test then asserts that the text "Piedra, Papel, Tijera" is present in the document using `getByText` and `toBeInTheDocument`.<br><br>3. **Second Test - Button Click Handling**: The second test checks if the button click correctly triggers the `setGameMode` function with the expected argument. A mock function (`jest.fn()`) is created for `setGameMode`. The component is rendered with this mock function and an empty function for `onBackToHome`. The test simulates a click event on a button with the text "Un Jugador" using `fireEvent.click`. Finally, it asserts that the `setGameMode` function was called with the argument 'single' using the `toHaveBeenCalledWith` matcher.<br><br>Overall, the tests ensure that the `HomeRock` component behaves as intended by verifying its rendering and interaction logic, which is essential for maintaining a robust user interface in React applications.</p>
+ </section>  <!-- Class Diagram< -->
+    <section id="class-diagram">
+        <div class="hh2">Class Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\HomeRock-test-js-TechnicalDocument\HomeRock.test_class-diagram.png"alt="Class Diagram"><br/><br/>    </section>  <!-- Sequence Diagram< -->
+    <section id="sequence-diagram">
+        <div class="hh2">Sequence Diagram</div>
+<br/><img src="c:\\Users\\a930536\\OneDrive - Eviden\\Escritorio\\multi-game-app\mo4doutput\docs\20241125_122332\HomeRock-test-js-TechnicalDocument\HomeRock.test_sequence-diagram.png"alt="Sequence Diagram"><br/><br/>    </section>  <!-- Time Complexity< -->
+    <section id="time-complexity">
+        <div class="hh2">Time Complexity</div>
+        <p>**Time Complexity Analysis**<br><br>The provided code snippet is a set of unit tests written in React using the Testing Library. The time complexity analysis of the tests is as follows:<br><br>1. **Rendering the Component**:<br>   - The `render` function is called to mount the `HomeRock` component. This function's complexity is generally O(1) for the purpose of the test, as it does not depend on the size of the input but rather on the component itself. The rendering process involves React's reconciliation algorithm, which is efficient for small components.<br><br>2. **Finding Elements**:<br>   - The `getByText` method is used to find elements in the rendered component. This function typically operates in O(n) time complexity, where n is the number of text nodes in the DOM. However, since the component is small and the number of nodes is limited, this can be considered O(1) for practical cases within the context of this test.<br><br>3. **Button Click Handling**:<br>   - The `fireEvent.click` method is called, simulating a user action. The time complexity of this operation is O(1) since it directly triggers the event without any loops or complex operations.<br><br>4. **Assertions**:<br>   - The `expect` function checks if the expected condition holds true. This operation is generally O(1) as it performs a direct comparison.<br><br>Overall, the time complexity for each individual test can be summarized as follows:<br>- **Test 1**: O(n) for finding text, where n is small due to the limited number of text nodes.<br>- **Test 2**: O(n) for finding elements and O(1) for the click event and assertions.<br><br>In summary, while individual operations might seem linear, the practical execution time for these tests remains efficient due to the small size and limited complexity of the `HomeRock` component. Therefore, the effective time complexity for each test can be approximated as O(1) for practical purposes.</p>
+    </section>  <!-- Review-comment< -->
+    <section id="review-comment">
+        <div class="hh2"> Review </div>
+        <p>**Code Review Summary**<br><br>**Identified Issues:**<br>1. **Lack of Accessibility Features**: The code does not utilize accessibility attributes (such as `aria-label`) for buttons or interactive elements which can affect users relying on screen readers. <br><br>**Recommendations for Improvement:**<br>1. **Add More Comprehensive Tests**: The current tests focus on rendering and a single button click. It would be beneficial to add tests for various scenarios, such as testing the `onBackToHome` function, to ensure comprehensive coverage of the component's functionality.<br>2. **Use of Descriptive Test Names**: While the test names are somewhat descriptive, they could be improved for clarity. Consider including the expected outcome in the test name to give better context about what is being tested.<br><br>**Areas of Strength:**<br>1. **Use of Testing Library**: The code effectively utilizes React Testing Library for rendering components and simulating user interactions, which promotes good testing practices.<br>2. **Mocking Functions**: The use of `jest.fn()` to mock the `setGameMode` function is appropriate and demonstrates an understanding of how to isolate component behavior in tests.<br><br>**Potential Bugs:**<br>1. **Hardcoded Strings**: The test for the button click relies on the hardcoded string 'Un Jugador'. If the button text changes, the test would fail. Consider using constants or variables to store such strings.<br><br>**Performance Bottlenecks:**<br>- Currently, there are no significant performance concerns identified in the provided code snippet. The tests are straightforward and should perform adequately for the intended use case.<br><br>**Security Vulnerabilities:**<br>- There are no apparent security vulnerabilities in the provided code. However, it is essential to ensure that any props or data passed into the component are properly validated.<br><br>**Overall Code Quality Assessment:**<br>- **Score: 7/10**: The code demonstrates a solid understanding of React testing principles but could benefit from more comprehensive testing, improved accessibility, and better naming conventions. Overall, it is well-structured and adheres to good practices.</p>
+    </section><footer><div><div style="float:left;padding-top:3px;">25-11-2024 12:30:37</div><img src="logo_icon.png" alt="logo" style="width: 6%;float:right;"></div></footer><script>
+    // Function to convert Markdown content inside <p> tags to HTML
+    function convertMarkdownToHTML() {
+      // Get all <p> elements
+      const paragraphs = document.querySelectorAll('p');
+      // Loop through the <p> elements using a for loop
+      for (let i = 0; i < paragraphs.length; i++) {
+        const markdownText = paragraphs[i].innerText; // Get markdown content
+        const htmlContent = marked.parse(markdownText); // Convert to HTML
+        paragraphs[i].outerHTML = htmlContent; // Set converted HTML inside <p>
+      }
+    }
+ 
+    // Immediately call the function
+    convertMarkdownToHTML();
+</script> <script>hljs.highlightAll();</script></body></html>
