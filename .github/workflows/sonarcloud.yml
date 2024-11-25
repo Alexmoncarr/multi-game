@@ -1,13 +1,9 @@
-name: Build
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    types: [opened, synchronize, reopened]
+name: SonarQube Cloud
+
+on: workflow_call
+
 jobs:
   sonarcloud:
-    name: SonarQube Cloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
