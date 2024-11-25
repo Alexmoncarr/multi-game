@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/test.yml
 
   sonarcloud:
-    needs: build
+    needs: [test, build]
     uses: ./.github/workflows/sonarcloud.yml
 
   deploy:
