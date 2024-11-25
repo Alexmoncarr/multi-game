@@ -1,0 +1,28 @@
+
+@startuml
+class Calculator {
+    - input: string
+    - result: string
+    + handleButtonClick(value: string): void
+    + handleClear(): void
+    + handleCalculate(): void
+}
+
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+Calculator --> "1" button
+
+@enduml

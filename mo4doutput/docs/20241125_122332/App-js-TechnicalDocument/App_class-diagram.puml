@@ -1,0 +1,47 @@
+
+@startuml
+class App {
+    - game: String
+    - gameMode: String
+    + handleBackToHome(): void
+}
+
+class Home {
+    + setGame(game: String): void
+}
+
+class HomeRock {
+    + setGameMode(mode: String): void
+    + onBackToHome(): void
+}
+
+class GuessNumber {
+    + onBackToHome(): void
+}
+
+class MemoryGame {
+    + onBackToHome(): void
+}
+
+class TicTacToe {
+    + onBackToHome(): void
+}
+
+class Calculator {
+    + onBackToHome(): void
+}
+
+class RockPaperScissors {
+    + mode: String
+    + onBackToHome(): void
+}
+
+App --> Home
+App --> Calculator
+App --> TicTacToe
+App --> HomeRock
+App --> RockPaperScissors
+App --> GuessNumber
+App --> MemoryGame
+HomeRock --> RockPaperScissors
+@enduml

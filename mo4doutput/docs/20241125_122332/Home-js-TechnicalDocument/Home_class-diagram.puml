@@ -1,0 +1,12 @@
+
+@startuml
+class Home {
+    +setGame(game: String)
+    +render(): JSX.Element
+}
+
+Home : -gameOptions : String[]
+Home : +setGame(game: String)
+Home : +render()
+
+@enduml

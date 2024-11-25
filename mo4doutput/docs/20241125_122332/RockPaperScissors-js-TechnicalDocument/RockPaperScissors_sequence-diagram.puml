@@ -1,0 +1,46 @@
+
+@startuml
+actor Player1
+actor Player2
+participant "RockPaperScissors" as Game
+participant "useState" as State
+participant "useEffect" as Effect
+
+Player1 -> Game : handleChoice(choice)
+activate Game
+Game -> State : setPlayer1Choice(choice)
+Game -> State : setPlayer2Choice(aiChoice) [if mode is single]
+deactivate Game
+
+Game -> Game : determineWinner(choice, aiChoice) [if mode is single]
+activate Game
+Game --> Player1 : result
+deactivate Game
+
+Player1 -> Game : handleChoice(choice) [if mode is two players]
+activate Game
+Game -> State : setPlayer2Choice(choice)
+deactivate Game
+
+Game -> Game : determineWinner(player1Choice, choice)
+activate Game
+Game --> Player1 : result
+deactivate Game
+
+Game -> Effect : useEffect()
+activate Effect
+Effect -> Effect : clearTimeout(timer) [if result is 'Empate']
+deactivate Effect
+
+Player1 -> Game : resetGame()
+activate Game
+Game -> State : setPlayer1Choice(null)
+Game -> State : setPlayer2Choice(null)
+Game -> State : setResult(null)
+deactivate Game
+
+Player1 -> Game : onBackToHome()
+activate Game
+Game --> Player1 : navigate to home
+deactivate Game
+@enduml

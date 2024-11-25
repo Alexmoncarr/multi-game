@@ -1,0 +1,20 @@
+
+@startuml
+actor User
+participant "TicTacToe" as TTT
+participant "Testing Library" as TL
+
+User -> TL : render(<TicTacToe onBackToHome={() => {}} />)
+TL -> TTT : renders component
+TTT -> User : displays "Tic Tac Toe"
+
+User -> TL : fireEvent.click(getByText('Single Player (Medium)'))
+TL -> TTT : handles click on "Single Player (Medium)"
+TTT -> User : updates game state
+
+User -> TL : fireEvent.click(squares[0])
+TL -> TTT : handles click on square[0]
+TTT -> TTT : updates square[0] to 'X'
+TTT -> User : displays 'X' in square[0]
+
+@enduml

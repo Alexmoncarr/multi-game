@@ -1,0 +1,20 @@
+
+@startuml
+actor User
+participant "reportWebVitals" as RV
+participant "web-vitals" as WV
+
+User -> RV : call(reportWebVitals)
+RV -> RV : check if onPerfEntry is a Function
+alt onPerfEntry is a Function
+    RV -> WV : import('web-vitals')
+    WV --> RV : return { getCLS, getFID, getFCP, getLCP, getTTFB }
+    RV -> WV : getCLS(onPerfEntry)
+    RV -> WV : getFID(onPerfEntry)
+    RV -> WV : getFCP(onPerfEntry)
+    RV -> WV : getLCP(onPerfEntry)
+    RV -> WV : getTTFB(onPerfEntry)
+else onPerfEntry is not a Function
+    RV -> User : do nothing
+end
+@enduml

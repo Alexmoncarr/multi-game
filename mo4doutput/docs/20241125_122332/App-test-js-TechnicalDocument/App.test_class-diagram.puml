@@ -1,0 +1,14 @@
+
+@startuml
+class App {
+}
+
+class Test {
+    +render(component: React.Component): void
+    +getByText(text: string): HTMLElement
+    +toBeInTheDocument(): void
+}
+
+Test --> App : renders
+
+@enduml

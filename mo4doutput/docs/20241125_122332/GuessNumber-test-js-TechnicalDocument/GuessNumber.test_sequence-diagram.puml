@@ -1,0 +1,31 @@
+
+@startuml
+actor User
+participant "GuessNumber Component" as GuessNumber
+participant "Testing Library" as TestingLibrary
+
+User -> TestingLibrary : render(<GuessNumber onBackToHome={() => {}} />)
+TestingLibrary -> GuessNumber : mount component
+GuessNumber --> TestingLibrary : return rendered component
+
+User -> TestingLibrary : getByText(/Adivina el Número/i)
+TestingLibrary -> GuessNumber : find text
+GuessNumber --> TestingLibrary : return text
+User -> TestingLibrary : expect(getByText) to be in the document
+
+User -> TestingLibrary : getByRole('spinbutton')
+TestingLibrary -> GuessNumber : find spinbutton
+GuessNumber --> TestingLibrary : return spinbutton
+
+User -> TestingLibrary : fireEvent.change(input, { target: { value: '50' } })
+TestingLibrary -> GuessNumber : update input value to '50'
+GuessNumber --> TestingLibrary : value updated
+
+User -> TestingLibrary : fireEvent.click(getByText('Adivinar'))
+TestingLibrary -> GuessNumber : simulate button click
+GuessNumber --> TestingLibrary : process guess
+
+User -> TestingLibrary : expect(getByText(/Demasiado/i)) to be in the document
+TestingLibrary -> GuessNumber : check for feedback text
+GuessNumber --> TestingLibrary : return feedback text
+@enduml

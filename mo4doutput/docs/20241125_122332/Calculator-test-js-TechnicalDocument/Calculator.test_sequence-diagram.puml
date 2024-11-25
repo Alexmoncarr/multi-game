@@ -1,0 +1,26 @@
+
+@startuml
+actor User
+participant "Calculator" as Calculator
+participant "Testing Library" as TestingLibrary
+
+User -> TestingLibrary : renders Calculator component
+TestingLibrary -> Calculator : render(<Calculator onBackToHome={() => {}} />)
+Calculator -> TestingLibrary : return component
+TestingLibrary -> User : expect(getByText(/Calculadora/i)).toBeInTheDocument()
+
+User -> TestingLibrary : performs addition correctly
+TestingLibrary -> Calculator : render(<Calculator onBackToHome={() => {}} />)
+TestingLibrary -> Calculator : fireEvent.click(getByText('1'))
+Calculator -> TestingLibrary : update state
+TestingLibrary -> Calculator : fireEvent.click(getByText('+'))
+Calculator -> TestingLibrary : update state
+TestingLibrary -> Calculator : fireEvent.click(getByText('2'))
+Calculator -> TestingLibrary : update state
+TestingLibrary -> Calculator : fireEvent.click(getByText('='))
+Calculator -> TestingLibrary : calculate result
+TestingLibrary -> Calculator : get result
+Calculator -> TestingLibrary : return result
+TestingLibrary -> User : expect(result).toHaveTextContent('3')
+
+@enduml

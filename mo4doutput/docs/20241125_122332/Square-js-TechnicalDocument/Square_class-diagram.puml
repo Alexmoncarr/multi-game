@@ -1,0 +1,10 @@
+
+@startuml
+class Square {
+  +value: any
+  +onClick(): void
+  +render(): JSX.Element
+}
+
+Square : +Square(value: any, onClick: () => void)
+@enduml

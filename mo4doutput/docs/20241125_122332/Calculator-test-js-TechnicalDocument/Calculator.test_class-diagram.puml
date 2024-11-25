@@ -1,0 +1,16 @@
+
+@startuml
+class Calculator {
+    +onBackToHome: function
+    +render(): ReactElement
+    +add(a: number, b: number): number
+}
+
+class Test {
+    +render(component: ReactElement): object
+    +getByText(text: string): HTMLElement
+    +fireEvent: object
+}
+
+Calculator --> Test : uses
+@enduml

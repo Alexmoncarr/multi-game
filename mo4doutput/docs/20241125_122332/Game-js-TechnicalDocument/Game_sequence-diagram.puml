@@ -1,0 +1,13 @@
+
+@startuml
+actor User
+participant Game
+participant Board
+
+User -> Game : Render Game Component
+Game -> Game : Check mode (isSinglePlayer)
+Game -> User : Display Header (Single Player or Two Players)
+Game -> Board : Render Board (isSinglePlayer, difficulty, onBackToHome)
+Board -> Game : Board Rendered
+Game -> User : Display Game Interface
+@enduml

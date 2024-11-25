@@ -1,0 +1,19 @@
+
+@startuml
+class RockPaperScissors {
+  - player1Choice: String
+  - player2Choice: String
+  - result: String
+  - choices: List<String>
+  + handleChoice(choice: String): void
+  - determineWinner(choice1: String, choice2: String): String
+  - resetGame(): void
+  + useEffect(): void
+  + render(): void
+}
+
+RockPaperScissors --> "1" useState
+RockPaperScissors --> "1" useEffect
+RockPaperScissors --> "1" onBackToHome
+
+@enduml

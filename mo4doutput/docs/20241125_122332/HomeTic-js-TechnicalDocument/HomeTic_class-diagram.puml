@@ -1,0 +1,8 @@
+
+@startuml
+class Home {
+    +setGameMode(mode: {mode: string, difficulty: string}): void
+}
+
+Home --> "1" Button : triggers >
+@enduml

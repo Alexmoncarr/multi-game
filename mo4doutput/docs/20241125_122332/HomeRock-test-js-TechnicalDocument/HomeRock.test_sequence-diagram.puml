@@ -1,0 +1,13 @@
+
+@startuml
+actor User
+participant "HomeRock Component" as HomeRock
+participant "setGameMode Function" as SetGameMode
+
+User -> HomeRock : renders HomeRock component
+HomeRock -> User : displays "Piedra, Papel, Tijera"
+
+User -> HomeRock : clicks "Un Jugador" button
+HomeRock -> SetGameMode : setGameMode('single')
+SetGameMode -> HomeRock : acknowledgment
+@enduml

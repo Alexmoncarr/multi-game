@@ -1,0 +1,24 @@
+
+@startuml
+class HomeRock {
+    +setGameMode(gameMode: string): void
+    +onBackToHome(): void
+}
+
+class TestingLibrary {
+    +render(component: ReactElement): RenderResult
+    +fireEvent(element: HTMLElement, event: string): void
+}
+
+class RenderResult {
+    +getByText(text: string): HTMLElement
+}
+
+class Jest {
+    +fn(): Function
+}
+
+HomeRock --> "1" TestingLibrary : uses
+HomeRock --> "1" Jest : mocks
+TestingLibrary --> "1" RenderResult : returns
+@enduml

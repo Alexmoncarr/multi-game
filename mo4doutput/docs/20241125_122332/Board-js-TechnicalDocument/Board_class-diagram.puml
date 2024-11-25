@@ -1,0 +1,22 @@
+
+@startuml
+class Board {
+    - squares: Array
+    - xIsNext: boolean
+    + handleClick(i: int): void
+    + minimax(squares: Array, depth: int, isMax: boolean): int
+    + findBestMove(squares: Array): int
+    + resetBoard(): void
+    + calculateWinner(squares: Array): String
+    + evaluate(squares: Array): int
+    + isMovesLeft(squares: Array): boolean
+    + findRandomMove(squares: Array): int
+}
+
+class Square {
+    - value: String
+    + onClick(): void
+}
+
+Board --> Square : uses
+@enduml

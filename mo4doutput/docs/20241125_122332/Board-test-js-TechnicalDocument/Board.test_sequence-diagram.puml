@@ -1,0 +1,17 @@
+
+@startuml
+actor User
+participant "Board" as Board
+participant "Render" as Render
+participant "Event" as Event
+
+User -> Render : render(Board)
+Render -> Board : create instance
+Board -> User : displays "Next player"
+User -> Render : getAllByRole('button')
+Render -> Board : return squares
+User -> Event : fireEvent.click(squares[0])
+Event -> Board : update square
+Board -> User : displays "X" in squares[0]
+
+@enduml

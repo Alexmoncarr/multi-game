@@ -1,0 +1,27 @@
+
+@startuml
+class HomeTic {
+    +setGameMode: Function
+    +render(): JSX.Element
+}
+
+class Test {
+    +getByText(text: string): HTMLElement
+    +toBeInTheDocument(): boolean
+    +toHaveBeenCalledWith(args: Object): boolean
+}
+
+class Render {
+    +render(component: JSX.Element): Test
+}
+
+class FireEvent {
+    +click(element: HTMLElement): void
+}
+
+HomeTic --> Render : uses
+HomeTic --> FireEvent : uses
+Render --> Test : creates
+FireEvent --> Test : interacts
+
+@enduml

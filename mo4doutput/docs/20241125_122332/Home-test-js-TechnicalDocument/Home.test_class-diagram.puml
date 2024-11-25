@@ -1,0 +1,23 @@
+
+@startuml
+class Home {
+    + setGame(game: string): void
+}
+
+class Test {
+    + render(component: ReactElement): RenderResult
+    + fireEvent: FireEvent
+}
+
+class RenderResult {
+    + getByText(text: string): HTMLElement
+}
+
+class FireEvent {
+    + click(element: HTMLElement): void
+}
+
+Home --> Test
+Test --> RenderResult
+Test --> FireEvent
+@enduml

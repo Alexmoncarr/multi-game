@@ -1,0 +1,14 @@
+
+@startuml
+
+class HomeRock {
+    +setGameMode: Function
+    +onBackToHome: Function
+    +HomeRock(setGameMode: Function, onBackToHome: Function)
+    +render(): JSX.Element
+}
+
+HomeRock -> "setGameMode" : setGameMode(gameMode: String)
+HomeRock -> "onBackToHome" : onBackToHome()
+
+@enduml

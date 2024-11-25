@@ -1,0 +1,18 @@
+
+@startuml
+actor User
+participant "ReactDOM" as ReactDOM
+participant "React.StrictMode" as StrictMode
+participant "App" as App
+participant "reportWebVitals" as ReportWebVitals
+
+User -> ReactDOM : createRoot(document.getElementById('root'))
+ReactDOM -> StrictMode : render(<App />)
+StrictMode -> App : render()
+App -> StrictMode : componentDidMount()
+StrictMode -> ReactDOM : render complete
+ReactDOM -> User : App rendered
+
+User -> ReportWebVitals : invoke()
+ReportWebVitals -> User : metrics logged
+@enduml
