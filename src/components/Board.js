@@ -110,7 +110,6 @@ function Board({ isSinglePlayer, difficulty, onBackToHome }) {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button className="back-button" onClick={onBackToHome}>Back to Home</button>
     </div>
   );
 
