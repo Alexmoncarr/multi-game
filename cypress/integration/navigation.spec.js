@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Pruebas de Navegación', () => {
     it('NAV-001: Comprobar que los botones de juegos funcionan', () => {
         cy.visit('/');
