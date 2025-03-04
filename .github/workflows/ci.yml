@@ -23,5 +23,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
-    needs: [build, sonarcloud]
+    needs: [build, test, sonarcloud]
     uses: ./.github/workflows/deploy.yml

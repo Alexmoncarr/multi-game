@@ -13,3 +13,5 @@ jobs:
         node-version: '16'
     - run: npm install
     - run: npm test
+    - name: Run Cypress tests
+      run: npx cypress run
